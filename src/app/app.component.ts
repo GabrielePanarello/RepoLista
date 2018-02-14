@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuItem } from './menuItem';
+import { ComunicatorServiceMenu } from './comunicator-menu.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  currentMenu : string ;
+
+constructor(private comunicatorService : ComunicatorServiceMenu){
+  this.comunicatorService.mySubjects.subscribe ((newValue: string) => {
+    this.currentMenu = newValue;
+});
 }
 
+}
 

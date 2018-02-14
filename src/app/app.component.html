@@ -2,7 +2,9 @@
     <app-menu *ngSwitchCase="'happy'" [hero]="currentHero"></app-menu>
     <app-games-list></app-games-list>
 </div>-->
-
 <app-menu></app-menu>
-<app-home></app-home>
+<div [ngSwitch]="currentMenu">
+    <app-home *ngSwitchCase="'01'"></app-home>
+    <app-games-list *ngSwitchCase="'02'"></app-games-list>
+</div>
 <!--<app-games-list></app-games-list>-->

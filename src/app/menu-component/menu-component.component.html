@@ -1,7 +1,7 @@
 <div id="menu">
     <ul>
         <div *ngFor="let item of items, let i=index">
-            <li>{{item.descrizione}}</li>
+            <li (click)="showData(item.id)">{{item.descrizione}}</li>
         </div>
     </ul>
 </div>

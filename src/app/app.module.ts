@@ -8,6 +8,7 @@ import { GamesListComponentComponent } from './games-list-component/games-list-c
 import { GameDetailComponentComponent } from './game-detail-component/game-detail-component.component';
 import { EditGameComponentComponent } from './edit-game-component/edit-game-component.component';
 import { HomeComponent } from './home-component/home.component';
+import { ComunicatorServiceMenu } from './comunicator-menu.service';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { HomeComponent } from './home-component/home.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    ComunicatorServiceMenu
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
