@@ -1,3 +1,10 @@
-<p>
-  games-list-component works!
-</p>
+<div *ngFor="let item of items, let i=index">
+    <div>ID: {{item.id}}</div>
+    <div>Nome: {{item.nome}}</div>
+    <div>Descrizione: {{item.descrizione}}</div>
+    <div>Genere: {{item.genere}}</div>
+    <div>Rating: {{item.rating}}</div>
+    <div>Prezzo: {{item.prezzo}}</div>
+    <div>Anno: {{item.annoUscita}}</div>
+    <!--<div *ngIf="i!=items.length-1">--------------------</div>-->
+</div>
