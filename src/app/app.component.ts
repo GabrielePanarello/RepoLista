@@ -9,7 +9,7 @@ import { ComunicatorServiceMenu } from './comunicator-menu.service';
 })
 export class AppComponent {
   title = 'app';
-  currentMenu : string ;
+  currentMenu = "01";
 
 constructor(private comunicatorService : ComunicatorServiceMenu){
   this.comunicatorService.mySubjects.subscribe ((newValue: string) => {

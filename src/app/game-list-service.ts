@@ -5,12 +5,22 @@ import { GameItem } from './gameItem';
 export class GameListService {
 
   constructor() { }
+
+  private items:GameItem [] = [
+    new GameItem("01","DC","Flash","Serie TV",5,98,70),
+    new GameItem("02","DC","Arrow","Serie TV",6,90,80),
+  ];
   
   getGamesList(): GameItem[] {
-    let items: GameItem[] = [];
-    items.push({ id:"01", nome: "DC", descrizione: "Flash", genere: "animato",rating: 5,annoUscita: 98,prezzo: 70 });
-    items.push({ id:"02", nome: "DC", descrizione: "Arrow", genere: "animato",rating: 5,annoUscita: 98,prezzo: 60 });
-    return items;
+    return this.items;
 }
+
+  getGameById(value:string): GameItem {
+    for(let item of this.items){
+      if(value == item.id){
+        return item;
+      }
+    }
+  }
 
 }

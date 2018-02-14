@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-game-component',
+  selector: 'app-edit-game',
   templateUrl: './edit-game-component.component.html',
   styleUrls: ['./edit-game-component.component.css']
 })
