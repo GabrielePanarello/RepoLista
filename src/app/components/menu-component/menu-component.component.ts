@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from '../menuItem';
-import { MenuService } from '../menu-service';
-import { ComunicatorServiceMenu } from '../comunicator-menu.service';
+import { MenuItem } from '../../objs/menuItem';
+import { MenuService } from '../../services/menu-service';
+import { ComunicatorServiceMenu } from '../../services/comunicator-menu.service';
 
 @Component({
   selector: 'app-menu',
