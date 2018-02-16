@@ -10,6 +10,7 @@ import { EditGameComponentComponent } from './components/edit-game-component/edi
 import { HomeComponent } from './components/home-component/home.component';
 import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
 import { GameListService } from './services/game-list-service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GameListService } from './services/game-list-service';
     HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     ComunicatorServiceMenu,

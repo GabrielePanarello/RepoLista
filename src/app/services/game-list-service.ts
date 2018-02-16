@@ -23,8 +23,24 @@ export class GameListService {
     }
   }
 
-  editGame(){
+  getGameByName(value:string): GameItem {
+    for(let item of this.items){
+      if(value == item.descrizione){
+        return item;
+      }
+    }
+  }
+
+  editGame(newValue: string, attributo: string){
+    switch(attributo){
+      case "nome":
+      for(let item of this.items){
+        item.nome = newValue;
+      }
+      break;
+    }
 
   }
+
 
 }

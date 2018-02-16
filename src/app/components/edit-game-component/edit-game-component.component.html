@@ -1,3 +1,11 @@
-<p>
-  edit-game-component works!
-</p>
+<h2>Inserisci Nome da ricercare:</h2>
+
+<input [(ngModel)]="value" />
+<input type="button" value="Cerca" (click)="showGame(value)" />
+
+<div *ngIf="value != item?.nome">
+    <p><input value="{{item?.nome}}" /></p>
+    <p><input value="{{item?.descrizione}}" /></p>
+    <p><input value="{{item?.genere}}" /></p>
+    <input type="button" value="Modifica">
+</div>
