@@ -7,8 +7,8 @@ export class GameListService {
   constructor() { }
 
   private items:GameItem [] = [
-    new GameItem("01","DC","Flash","FPS",5,98,70),
-    new GameItem("02","DC","Arrow","RPG",6,90,80),
+    new GameItem("01","FIFA 18","-","Sport",5,2018,35),
+    new GameItem("02","Call Of Duty","-","FPS",5,2018,35)
   ];
   
   getGamesList(): GameItem[] {
@@ -25,21 +25,18 @@ export class GameListService {
 
   getGameByName(value:string): GameItem {
     for(let item of this.items){
-      if(value == item.descrizione){
+      if(value == item.nome){
         return item;
       }
     }
   }
 
-  editGame(newValue: string, attributo: string){
-    switch(attributo){
-      case "nome":
-      for(let item of this.items){
-        item.nome = newValue;
+  editGame(modifiedGame: GameItem){
+    for(let item of this.items){
+      if(modifiedGame.id = item.id){
+        item = modifiedGame;
       }
-      break;
     }
-
   }
 
 

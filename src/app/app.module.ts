@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home-component/home.component';
 import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
 import { GameListService } from './services/game-list-service';
 import { FormsModule } from '@angular/forms';
+import { DetailToEditService } from './services/detail-to-edit.service';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     ComunicatorServiceMenu,
-    GameListService
+    GameListService,
+    DetailToEditService
   ],
   bootstrap: [AppComponent]
 })

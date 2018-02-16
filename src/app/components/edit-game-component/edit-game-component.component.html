@@ -3,9 +3,14 @@
 <input [(ngModel)]="value" />
 <input type="button" value="Cerca" (click)="showGame(value)" />
 
-<div *ngIf="value != item?.nome">
-    <p><input value="{{item?.nome}}" /></p>
-    <p><input value="{{item?.descrizione}}" /></p>
-    <p><input value="{{item?.genere}}" /></p>
-    <input type="button" value="Modifica">
+<div *ngIf="item != undefined">
+
+    <p>Nome: <input [(ngModel)]="item.nome" /></p>
+    <p>Descrizione: <input [(ngModel)]="item.descrizione" /></p>
+    <p>Genere: <input [(ngModel)]="item.genere" /></p>
+    <p>Rating: <input [(ngModel)]="item.rating" /></p>
+    <p>Prezzo: <input [(ngModel)]="item.prezzo" /></p>
+    <p>Anno di Uscita: <input [(ngModel)]="item.annoUscita" /></p>
+
+    <p><input type="button" value="Modifica" (click)="updateGame()"></p>
 </div>

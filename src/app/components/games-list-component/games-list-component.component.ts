@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
-import { ComunicatorServiceMenu } from '../../services/comunicator-menu.service';
 
 @Component({
   selector: 'app-games-list',
@@ -21,8 +20,9 @@ export class GamesListComponentComponent implements OnInit {
   }
 
   selectGame(id:string){
-    console.log(id);
     this.id = id;
   }
+
+  
 
 }

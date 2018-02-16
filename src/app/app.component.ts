@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'app';
   currentMenu = "01";
   idSelected = "";
+  gameSelected = "";
 
 @ViewChild(GamesListComponentComponent) viewChild : GamesListComponentComponent;
 
@@ -22,17 +23,18 @@ constructor(private comunicatorService : ComunicatorServiceMenu){
 }
 
 ngAfterViewChecked(){
-  if(this.viewChild && this.viewChild.id && this.idSelected != this.viewChild.id){
+  if(this.viewChild && this.viewChild.id && this.idSelected != this.viewChild.id ){
     this.idSelected = this.viewChild.id;
 
     let this_ = this;
     setTimeout(function() {
-
     this_.comunicatorService.changeSubject("04");
-
     },0);
   }
+
 }
+
+
 
 }
 
