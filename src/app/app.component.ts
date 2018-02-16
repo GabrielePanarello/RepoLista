@@ -22,9 +22,15 @@ constructor(private comunicatorService : ComunicatorServiceMenu){
 }
 
 ngAfterViewChecked(){
-  if(this.idSelected != this.viewChild.id){
+  if(this.viewChild && this.viewChild.id && this.idSelected != this.viewChild.id){
     this.idSelected = this.viewChild.id;
-    this.comunicatorService.changeSubject("04");
+
+    let this_ = this;
+    setTimeout(function() {
+
+    this_.comunicatorService.changeSubject("04");
+
+    },0);
   }
 }
 
