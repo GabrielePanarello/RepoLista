@@ -1,7 +1,7 @@
 <div id="menu">
     <ul>
-        <div *ngFor="let item of items, let i=index">
-            <li (click)="showData(item.id)">{{item.descrizione}}</li>
+        <div (click)="selectSection(item.id)" *ngFor="let item of items, let i=index">
+            <li *ngIf="item.visualizzato != true" (click)="showData(item.id)" [class.selected]="item.selezionato">{{item.descrizione}}</li>
         </div>
     </ul>
 </div>

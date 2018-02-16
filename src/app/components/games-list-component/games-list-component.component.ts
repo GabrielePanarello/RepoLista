@@ -12,22 +12,17 @@ export class GamesListComponentComponent implements OnInit {
 
   items: GameItem[];
   id: string;
-  master = 'Master';
-  
-  constructor(private comunicatoMenu: ComunicatorServiceMenu) { 
-    let gameListService:GameListService= new GameListService();
-    this.items = gameListService.getGamesList();
+
+  constructor(private gameListService: GameListService) { 
   }
 
   ngOnInit(){
-    this.items.push(new GameItem()); 
+    this.items = this.gameListService.getGamesList();
   }
 
-  getGameId(id:string){
+  selectGame(id:string){
+    console.log(id);
     this.id = id;
-    this.comunicatoMenu.changeSubject("03");
   }
-
-
 
 }

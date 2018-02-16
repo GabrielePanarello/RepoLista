@@ -2,6 +2,6 @@
 <div [ngSwitch]="currentMenu">
     <app-home *ngSwitchCase="'01'"></app-home>
     <app-games-list *ngSwitchCase="'02'"></app-games-list>
-    <app-game-detail *ngSwitchCase="'03'"></app-game-detail>
-    <app-edit-game *ngSwitchCase="'04'"></app-edit-game>
+    <app-edit-game *ngSwitchCase="'03'"></app-edit-game>
+    <app-game-detail *ngSwitchCase="'04'" [idSelected]="idSelected"></app-game-detail>
 </div>

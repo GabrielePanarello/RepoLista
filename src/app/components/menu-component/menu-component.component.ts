@@ -22,7 +22,20 @@ export class MenuComponentComponent implements OnInit {
   }
 
   showData(item: string){
-    //chiamo il next nel subject
     this.comunicatorService.changeSubject(item);
   }
+
+  selectSection(id:string){
+
+    this.items.forEach(item => {
+      if(id == item.id){
+        item.selezionato = true;
+      }else{
+        item.selezionato = false;
+      }
+    });
+
+    this.comunicatorService.changeSubject(id);
+  }
 }
+

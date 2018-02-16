@@ -9,6 +9,7 @@ import { GameDetailComponentComponent } from './components/game-detail-component
 import { EditGameComponentComponent } from './components/edit-game-component/edit-game-component.component';
 import { HomeComponent } from './components/home-component/home.component';
 import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
+import { GameListService } from './services/game-list-service';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
     BrowserModule
   ],
   providers: [
-    ComunicatorServiceMenu
+    ComunicatorServiceMenu,
+    GameListService
   ],
   bootstrap: [AppComponent]
 })

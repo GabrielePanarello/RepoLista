@@ -7,8 +7,8 @@ export class GameListService {
   constructor() { }
 
   private items:GameItem [] = [
-    new GameItem("01","DC","Flash","Serie TV",5,98,70),
-    new GameItem("02","DC","Arrow","Serie TV",6,90,80),
+    new GameItem("01","DC","Flash","FPS",5,98,70),
+    new GameItem("02","DC","Arrow","RPG",6,90,80),
   ];
   
   getGamesList(): GameItem[] {
@@ -21,6 +21,10 @@ export class GameListService {
         return item;
       }
     }
+  }
+
+  editGame(){
+
   }
 
 }
