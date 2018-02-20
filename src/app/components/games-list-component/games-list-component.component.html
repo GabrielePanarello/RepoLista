@@ -1,10 +1,16 @@
-<div (click)="selectGame(item.id)" *ngFor="let item of items">
-    <div>ID: {{item.id}}</div>
-    <div>Nome: {{item.nome}}</div>
-    <div>Descrizione: {{item.descrizione}}</div>
-    <div>Genere: {{item.genere}}</div>
-    <div>Rating: {{item.rating}}</div>
-    <div>Prezzo: {{item.prezzo}}</div>
-    <div>Anno: {{item.annoUscita}}</div>
-    <div>--------------------</div>
+<div class="game" *ngFor="let item of items">
+
+    <img id="copertina" src="{{item.copertina}}">
+
+    <div id="dettagli">
+        <p id="descrizione">Nome: {{item.nome}}</p>
+        <p id="descrizione">Genere: {{item.genere}}</p>
+        <p id="descrizione">Rating: {{item.rating}}&#9733;</p>
+        <p id="descrizione">Anno di Uscita: {{item.annoUscita}}</p>
+
+        <p id="detail" (click)="selectGame(item.id)">Dettaglio >></p>
+
+        <p id="prezzo">{{item.prezzo}} €</p>
+    </div>
+
 </div>

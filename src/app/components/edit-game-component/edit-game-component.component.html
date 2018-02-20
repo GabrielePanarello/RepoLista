@@ -1,11 +1,12 @@
 <h2>Inserisci Nome da ricercare:</h2>
+<div class="find">
+    <input [(ngModel)]="value" />
+    <input type="button" value="Cerca" (click)="showGame(value)" />
+</div>
 
-<input [(ngModel)]="value" />
-<input type="button" value="Cerca" (click)="showGame(value)" />
+<div class="found" *ngIf="item != undefined">
 
-<div *ngIf="item != undefined">
-
-    <p>Nome: <input [(ngModel)]="item.nome" /></p>
+    <p>Nome: <input [(ngModel)]="item.nome" disabled /></p>
     <p>Descrizione: <input [(ngModel)]="item.descrizione" /></p>
     <p>Genere: <input [(ngModel)]="item.genere" /></p>
     <p>Rating: <input [(ngModel)]="item.rating" /></p>

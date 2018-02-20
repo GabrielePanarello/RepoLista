@@ -1,0 +1,36 @@
+.game {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Concert One', cursive;
+}
+
+#copertina {
+    display: inline;
+    height: 300px;
+    width: 241px;
+    box-shadow: 3px 6px 22px 1px rgba(0, 0, 0, 0.44);
+}
+
+#dettagli {
+    display: inline;
+    float: right;
+}
+
+#cta {
+    text-align: center;
+    border: solid red;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#prezzo {
+    text-align: center;
+    color: red;
+    font-size: 25px;
+}
