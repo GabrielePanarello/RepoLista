@@ -18,17 +18,21 @@ export class EditGameComponentComponent implements OnInit{
 
   constructor(private listService: GameListService, private detailToEdit : DetailToEditService) { }
 
-  showGame(value: string){
-  this.item = this.listService.getGameByName(value);
-  console.log(this.value + this.item);
-  }
-
   ngOnInit(){
     this.item = this.detailToEdit.getTempItem();
   }
 
+  showGame(value: string){
+    if(value != undefined){
+      this.item = this.listService.getGameByName(value);
+    }else{
+     alert("Inserisci il Valore");
+   }   
+   }
+
   updateGame(){
     this.listService.editGame(this.item);
+    alert("Modificato");
   }
 
 }

@@ -1,17 +1,17 @@
 <h2>Inserisci Nome da ricercare:</h2>
 <div class="find">
     <input [(ngModel)]="value" />
-    <input type="button" value="Cerca" (click)="showGame(value)" />
+    <p id="cerca" (click)="showGame(value)">Cerca</p>
 </div>
 
 <div class="found" *ngIf="item != undefined">
 
-    <p>Nome: <input [(ngModel)]="item.nome" disabled /></p>
-    <p>Descrizione: <input [(ngModel)]="item.descrizione" /></p>
-    <p>Genere: <input [(ngModel)]="item.genere" /></p>
-    <p>Rating: <input [(ngModel)]="item.rating" /></p>
-    <p>Prezzo: <input [(ngModel)]="item.prezzo" /></p>
-    <p>Anno di Uscita: <input [(ngModel)]="item.annoUscita" /></p>
+    <label>Nome:</label> <input [(ngModel)]="item.nome" disabled />
+    <label>Descrizione:</label> <input [(ngModel)]="item.descrizione" />
+    <label>Genere:</label> <input [(ngModel)]="item.genere" />
+    <label>Rating:</label> <input [(ngModel)]="item.rating" />
+    <label>Prezzo:</label> <input [(ngModel)]="item.prezzo" />
+    <label>Anno di Uscita:</label> <input [(ngModel)]="item.annoUscita" />
 
-    <p><input type="button" value="Modifica" (click)="updateGame()"></p>
+    <p id="cta" (click)="updateGame()">Modifica</p>
 </div>
