@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div [ngSwitch]="currentMenu">
     <app-home *ngSwitchCase="'01'"></app-home>
-    <app-games-list *ngSwitchCase="'02'"></app-games-list>
+    <app-games-list *ngSwitchCase="'02'" (change)="currentGame($event)"></app-games-list>
     <app-edit-game *ngSwitchCase="'03'" [gameSelected]="gameSelected"></app-edit-game>
     <app-game-detail *ngSwitchCase="'04'" [idSelected]="idSelected"></app-game-detail>
 </div>

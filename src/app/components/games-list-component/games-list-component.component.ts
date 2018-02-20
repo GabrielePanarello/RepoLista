@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 
@@ -9,8 +9,13 @@ import { GameListService } from '../../services/game-list-service';
 })
 export class GamesListComponentComponent implements OnInit {
 
-  items: GameItem[];
   id: string;
+
+  @Input()
+  items: GameItem[];
+
+  @Output()
+  change: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private gameListService: GameListService) { 
   }
@@ -21,8 +26,8 @@ export class GamesListComponentComponent implements OnInit {
 
   selectGame(id:string){
     this.id = id;
+    this.change.emit(id);
   }
-
   
 
 }
