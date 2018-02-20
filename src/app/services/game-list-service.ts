@@ -27,7 +27,7 @@ export class GameListService {
 
   getGameByName(value:string): GameItem {
     for(let item of this.items){
-      if(value == item.nome){
+      if(value.toLowerCase() == item.nome.toLowerCase()){
         return item;
       }
     }
@@ -35,7 +35,7 @@ export class GameListService {
 
   editGame(modifiedGame: GameItem){
     for(let item of this.items){
-      if(modifiedGame.id = item.id){
+      if(modifiedGame.id == item.id){
         item = modifiedGame;
       }
     }
