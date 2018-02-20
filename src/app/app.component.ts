@@ -14,26 +14,16 @@ export class AppComponent {
   idSelected = "";
   gameSelected = "";
 
-@ViewChild(GamesListComponentComponent) viewChild : GamesListComponentComponent;
-
 constructor(private comunicatorService : ComunicatorServiceMenu){
   this.comunicatorService.mySubjects.subscribe ((newValue: string) => {
     this.currentMenu = newValue;
 });
 }
 
-ngAfterViewChecked(){
-  if(this.viewChild && this.viewChild.id && this.idSelected != this.viewChild.id ){
-    this.idSelected = this.viewChild.id;
-
-    let this_ = this;
-    setTimeout(function() {
-    this_.comunicatorService.changeSubject("04");
-    },0);
-  }
-
+currentGame(item: string){
+  this.idSelected = item;
+  this.comunicatorService.changeSubject("04");
 }
-
 
 
 }
