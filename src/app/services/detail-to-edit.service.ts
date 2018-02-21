@@ -16,4 +16,7 @@ export class DetailToEditService {
       return this.tempItem;
   }
 
+  refreshItem(){
+    this.tempItem = undefined;
+  }
 }

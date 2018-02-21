@@ -14,12 +14,15 @@ export class EditGameComponentComponent implements OnInit{
   value: string;
 
   @Input("gameSelected") id:string;
-  
 
   constructor(private listService: GameListService, private detailToEdit : DetailToEditService) { }
 
   ngOnInit(){
     this.item = this.detailToEdit.getTempItem();
+  }
+
+  ngOnDestroy(){
+    this.detailToEdit.refreshItem();
   }
 
   showGame(value: string){
