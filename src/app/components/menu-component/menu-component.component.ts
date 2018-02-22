@@ -18,7 +18,6 @@ export class MenuComponentComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.items.push(new MenuItem()); 
   }
 
   showData(item: string){
