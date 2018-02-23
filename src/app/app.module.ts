@@ -8,12 +8,15 @@ import { GamesListComponentComponent } from './components/games-list-component/g
 import { GameDetailComponentComponent } from './components/game-detail-component/game-detail-component.component';
 import { EditGameComponentComponent } from './components/edit-game-component/edit-game-component.component';
 import { HomeComponent } from './components/home-component/home.component';
-import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
 import { GameListService } from './services/game-list-service';
 import { FormsModule } from '@angular/forms';
 import { DetailToEditService } from './services/detail-to-edit.service';
 import { LoginComponent } from './components/login/login.component';
 import { MainRouterModule } from './routers/router-module';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { MenuService } from './services/menu-service';
+import { LoginService } from './services/login.service';
 
 
 @NgModule({
@@ -32,9 +35,11 @@ import { MainRouterModule } from './routers/router-module';
     MainRouterModule
   ],
   providers: [
-    ComunicatorServiceMenu,
     GameListService,
-    DetailToEditService
+    DetailToEditService,
+    AuthService,
+    AuthGuardService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

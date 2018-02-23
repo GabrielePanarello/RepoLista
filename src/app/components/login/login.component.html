@@ -1,3 +1,5 @@
-<p>
-  login works!
-</p>
+<div class="container">
+    <label>Username</label><input [(ngModel)]="user" />
+    <label>Password</label><input [(ngModel)]="psw" type="password" />
+    <p id="cta" (click)="submitLogin() ">Login</p>
+</div>

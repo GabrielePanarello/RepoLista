@@ -2,7 +2,6 @@ import { Component, OnInit, Input} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 import { GamesListComponentComponent } from '../games-list-component/games-list-component.component';
-import { ComunicatorServiceMenu } from '../../services/comunicator-menu.service';
 import { DetailToEditService } from '../../services/detail-to-edit.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -34,7 +33,7 @@ export class GameDetailComponentComponent{
   selectGame(id:string){
     this.id = id;
     this.detailToEdit.setTempItem(this.item);
-    this.router.navigate(["modifica"]);
+    this.router.navigate(["/modifica"]);
   }
 
 

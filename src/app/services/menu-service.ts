@@ -12,11 +12,12 @@ export class MenuService {
     new MenuItem("02","lista"),
     new MenuItem("03","modifica"),
     new MenuItem("04","dettaglio",true),
-    new MenuItem("05","login")
+    new MenuItem("05","login",true)
   ];
 
   getMenuList(): MenuItem[] {
     return this.items;
 }
+
 
 }

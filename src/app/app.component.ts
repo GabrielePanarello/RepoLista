@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuItem } from './objs/menuItem';
-import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
-import { GamesListComponentComponent } from './components/games-list-component/games-list-component.component';
+import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,22 @@ import { GamesListComponentComponent } from './components/games-list-component/g
 })
 export class AppComponent {
   title = 'app';
-  idSelected = "";
-  gameSelected = "";
+  isLogged = false;
 
-constructor(){
- 
+constructor(private loginService: LoginService, private router: Router){
+  this.loginService.mySubject$.subscribe ((newValue: boolean) => {
+    this.isLogged = newValue;
+  });
 }
 
-currentGame(item: string){
-  this.idSelected = item;
-}
+
+
+
+
+
+
+
+
 
 
 }
