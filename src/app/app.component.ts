@@ -10,7 +10,7 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
   title = 'app';
-  isLogged : boolean;
+  isLogged = false;
 
 constructor(private loginService: LoginService, private router: Router){
   this.loginService.mySubject$.subscribe ((newValue: boolean) => {

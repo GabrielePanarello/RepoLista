@@ -15,13 +15,13 @@ export class EditGameComponentComponent implements OnInit{
   item: GameItem;
   itemTmp : GameItem; 
   value: string;
+  isClicked = false;
 
   constructor(private listService: GameListService, private detailToEdit : DetailToEditService, private router: Router, private authService: AuthService) { 
     router.events.subscribe(event => {
       if(event instanceof NavigationStart) {
-        this.authService.checkItemSign(this.item,this.itemTmp);
+        this.authService.checkItemSign(this.item,this.itemTmp, this.isClicked);
       }
-        
   });
 }
 
@@ -37,13 +37,14 @@ export class EditGameComponentComponent implements OnInit{
   showGame(value: string){
     if(value != undefined){
       this.item = this.listService.getGameByName(value);
-      // this.itemTmp = this.clone(this.listService.getGameByName(value));
+      this.itemTmp = this.listService.getGameByName(value);
     }else{
      alert("Inserisci il Valore");
    }   
    }
 
   updateGame(){
+    this.isClicked = true;
     this.listService.editGame(this.item);
     alert("Modificato");
   }

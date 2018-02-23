@@ -4,7 +4,7 @@ import { GameItem } from '../objs/gameItem';
 @Injectable()
 export class AuthService {
   isLogged = false;
-  isModified = false;
+  isModified = true;
   constructor() { }
 
   checkLogin(user: string, psw: string):boolean{
@@ -14,13 +14,17 @@ export class AuthService {
     }
   }
 
-  checkItemSign(item: GameItem, modifiedItem:GameItem){
-    if (item != modifiedItem){
+  checkItemSign(item: GameItem, modifiedItem:GameItem, isClicked: boolean){
+    if (JSON.stringify(item) != JSON.stringify(modifiedItem)){
       this.isModified = false;
       console.log("Modificato");
     }else{
       this.isModified = true;
       console.log("NON Modificato");
+    }
+
+    if(isClicked == true){
+      this.isModified = true;
     }
   }
 }
