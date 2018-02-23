@@ -4,6 +4,7 @@ import { GameListService } from '../../services/game-list-service';
 import { GamesListComponentComponent } from '../games-list-component/games-list-component.component';
 import { ComunicatorServiceMenu } from '../../services/comunicator-menu.service';
 import { DetailToEditService } from '../../services/detail-to-edit.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game-detail',
@@ -12,23 +13,28 @@ import { DetailToEditService } from '../../services/detail-to-edit.service';
 })
 export class GameDetailComponentComponent{
 
-  @Input("idSelected") id:string;
+  id:string;
   item:GameItem;
 
-  constructor(private gameService: GameListService, private comunicatorMenu : ComunicatorServiceMenu, private detailToEdit : DetailToEditService) {}
+  constructor(private gameService: GameListService, private router: Router, private activatedRoute: ActivatedRoute ,private detailToEdit : DetailToEditService) {
+    this.activatedRoute.params.subscribe( params => {
+      if(params['id'] != null && params['id'] != ""){
+        this.item = this.gameService.getGameById(params['id']);
+      }
+    });
+  }
 
   ngOnInit(){
-    this.item = this.gameService.getGameById(this.id);
   }
 
   backToList(){
-    this.comunicatorMenu.changeSubject("02");
+    this.router.navigate(["/lista"]);
   }
 
   selectGame(id:string){
     this.id = id;
     this.detailToEdit.setTempItem(this.item);
-    this.comunicatorMenu.changeSubject("03");
+    this.router.navigate(["modifica"]);
   }
 
 

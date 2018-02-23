@@ -2,8 +2,8 @@
 
 <div id="menu">
     <ul>
-        <div (click)="selectSection(item.id)" *ngFor="let item of items, let i=index">
-            <li *ngIf="item.visualizzato != true" (click)="showData(item.id)" [class.selected]="item.selezionato">{{item.descrizione}}</li>
+        <div *ngFor="let item of items, let i=index">
+            <li *ngIf="item.visualizzato != true" routerLink="/{{item.descrizione}}" routerLinkActive="selected">{{item.descrizione}}</li>
         </div>
     </ul>
 </div>

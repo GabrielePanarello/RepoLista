@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games-list',
@@ -10,14 +11,9 @@ import { GameListService } from '../../services/game-list-service';
 export class GamesListComponentComponent implements OnInit {
 
   id: string;
-
-  @Input()
   items: GameItem[];
 
-  @Output()
-  change: EventEmitter<string> = new EventEmitter<string>();
-
-  constructor(private gameListService: GameListService) { 
+  constructor(private gameListService: GameListService, private router: Router) { 
   }
 
   ngOnInit(){
@@ -26,7 +22,7 @@ export class GamesListComponentComponent implements OnInit {
 
   selectGame(id:string){
     this.id = id;
-    this.change.emit(id);
+    this.router.navigate(["/dettaglio/"+id]);
   }
   
 

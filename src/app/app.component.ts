@@ -10,19 +10,15 @@ import { GamesListComponentComponent } from './components/games-list-component/g
 })
 export class AppComponent {
   title = 'app';
-  currentMenu = "01";
   idSelected = "";
   gameSelected = "";
 
-constructor(private comunicatorService : ComunicatorServiceMenu){
-  this.comunicatorService.mySubjects.subscribe ((newValue: string) => {
-    this.currentMenu = newValue;
-});
+constructor(){
+ 
 }
 
 currentGame(item: string){
   this.idSelected = item;
-  this.comunicatorService.changeSubject("04");
 }
 
 

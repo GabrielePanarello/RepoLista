@@ -12,6 +12,8 @@ import { ComunicatorServiceMenu } from './services/comunicator-menu.service';
 import { GameListService } from './services/game-list-service';
 import { FormsModule } from '@angular/forms';
 import { DetailToEditService } from './services/detail-to-edit.service';
+import { LoginComponent } from './components/login/login.component';
+import { MainRouterModule } from './routers/router-module';
 
 
 @NgModule({
@@ -21,11 +23,13 @@ import { DetailToEditService } from './services/detail-to-edit.service';
     GamesListComponentComponent,
     GameDetailComponentComponent,
     EditGameComponentComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MainRouterModule
   ],
   providers: [
     ComunicatorServiceMenu,
