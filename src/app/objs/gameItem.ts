@@ -19,4 +19,9 @@ export class GameItem{
         this.copertina = copertina;
     }
 
+    clone(item: GameItem): GameItem{
+        return new GameItem(this.id,this.nome,this.descrizione,this.genere,this.rating,this.prezzo,this.annoUscita,this.copertina);
+     }
+    
+
 }

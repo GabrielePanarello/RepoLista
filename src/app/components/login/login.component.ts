@@ -18,6 +18,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(sessionStorage.getItem('key') != null){
+      this.authService.isLogged = true;
+      this.loginService.changeSubject(true);
+      this.router.navigate(['/home']);
+    }
   }
 
   submitLogin(){
