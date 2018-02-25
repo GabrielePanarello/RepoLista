@@ -13,6 +13,7 @@ const routes: Routes = [
     {path:'lista', component: GamesListComponentComponent,canActivate: [AuthGuardService] },
     {path:'dettaglio/:id', component: GameDetailComponentComponent, canActivate: [AuthGuardService]},
     {path:'modifica', component: EditGameComponentComponent, canActivate: [AuthGuardService], canDeactivate: [AuthGuardService]},
+    {path:'modifica/:id', component: EditGameComponentComponent, canActivate: [AuthGuardService], canDeactivate: [AuthGuardService]},
     {path:'login', component: LoginComponent},
     {path: '', redirectTo:'/login', pathMatch:'full'},
     {path: '**', component: LoginComponent}

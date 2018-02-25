@@ -9,7 +9,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComp
   constructor(private authService: AuthService, private router : Router) { }
 
   canActivate(){
-    console.log(this.authService.isLogged);
+
     if(this.authService.isLogged == false){
       this.router.navigate(['/login']);
     }

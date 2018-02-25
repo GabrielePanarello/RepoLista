@@ -1,8 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 import { GamesListComponentComponent } from '../games-list-component/games-list-component.component';
-import { DetailToEditService } from '../../services/detail-to-edit.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +14,7 @@ export class GameDetailComponentComponent{
   id:string;
   item:GameItem;
 
-  constructor(private gameService: GameListService, private router: Router, private activatedRoute: ActivatedRoute ,private detailToEdit : DetailToEditService) {
+  constructor(private gameService: GameListService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( params => {
       if(params['id'] != null && params['id'] != ""){
         this.item = this.gameService.getGameById(params['id']);
@@ -32,8 +31,7 @@ export class GameDetailComponentComponent{
 
   selectGame(id:string){
     this.id = id;
-    this.detailToEdit.setTempItem(this.item);
-    this.router.navigate(["/modifica"]);
+    this.router.navigate(["/modifica/"+this.item.id]);
   }
 
 

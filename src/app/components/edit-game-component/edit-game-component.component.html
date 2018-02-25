@@ -4,14 +4,14 @@
     <p id="cerca" (click)="showGame(value)">Cerca</p>
 </div>
 
-<div class="found" *ngIf="item != undefined">
+<div class="found" *ngIf="newItem != undefined">
 
-    <label>Nome:</label> <input [(ngModel)]="item.nome" disabled />
-    <label>Descrizione:</label> <input [(ngModel)]="item.descrizione" />
-    <label>Genere:</label> <input [(ngModel)]="item.genere" />
-    <label>Rating:</label> <input [(ngModel)]="item.rating" />
-    <label>Prezzo:</label> <input [(ngModel)]="item.prezzo" />
-    <label>Anno di Uscita:</label> <input [(ngModel)]="item.annoUscita" />
+    <label>Nome:</label> <input [(ngModel)]="newItem.nome" disabled />
+    <label>Descrizione:</label> <input [(ngModel)]="newItem.descrizione" />
+    <label>Genere:</label> <input [(ngModel)]="newItem.genere" />
+    <label>Rating:</label> <input [(ngModel)]="newItem.rating" />
+    <label>Prezzo:</label> <input [(ngModel)]="newItem.prezzo" />
+    <label>Anno di Uscita:</label> <input [(ngModel)]="newItem.annoUscita" />
 
     <p id="cta" (click)="updateGame()">Modifica</p>
 </div>

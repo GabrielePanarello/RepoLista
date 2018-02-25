@@ -10,7 +10,6 @@ import { EditGameComponentComponent } from './components/edit-game-component/edi
 import { HomeComponent } from './components/home-component/home.component';
 import { GameListService } from './services/game-list-service';
 import { FormsModule } from '@angular/forms';
-import { DetailToEditService } from './services/detail-to-edit.service';
 import { LoginComponent } from './components/login/login.component';
 import { MainRouterModule } from './routers/router-module';
 import { AuthService } from './services/auth.service';
@@ -36,7 +35,6 @@ import { LoginService } from './services/login.service';
   ],
   providers: [
     GameListService,
-    DetailToEditService,
     AuthService,
     AuthGuardService,
     LoginService

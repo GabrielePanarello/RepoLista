@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
-import { DetailToEditService } from '../../services/detail-to-edit.service';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -13,39 +12,54 @@ import { AuthService } from '../../services/auth.service';
 export class EditGameComponentComponent implements OnInit{
   
   item: GameItem;
-  itemTmp : GameItem; 
+  newItem : GameItem; 
+  
   value: string;
-  isClicked = false;
 
-  constructor(private listService: GameListService, private detailToEdit : DetailToEditService, private router: Router, private authService: AuthService) { 
-    router.events.subscribe(event => {
+  isClicked = false;
+  fromDetail = false;
+
+  constructor(private listService: GameListService, private activatedRoute : ActivatedRoute, private router: Router, private authService: AuthService) { 
+    this.activatedRoute.params.subscribe( params => {
+      if(params['id'] != null && params['id'] != ""){
+        this.newItem = this.listService.getGameById(params['id']);
+        this.item = this.newItem.clone();
+        this.fromDetail = true;
+      }
+    });
+    
+    this.router.events.subscribe(event => {
       if(event instanceof NavigationStart) {
-        this.authService.checkItemSign(this.item,this.itemTmp, this.isClicked);
+        this.authService.checkItemSign(this.item,this.newItem,this.isClicked);
       }
   });
 }
 
   ngOnInit(){
-    this.item = this.detailToEdit.getTempItem();
+    if(this.fromDetail == true){
+      this.listService.getGameById(this.newItem.id);
+      this.listService.getGameById(this.item.id);
+    }
+    
   }
 
   ngOnDestroy(){
-    this.detailToEdit.refreshItem();
+    this.item = undefined;
   }
 
   
   showGame(value: string){
     if(value != undefined){
-      this.item = this.listService.getGameByName(value);
-      this.itemTmp = this.listService.getGameByName(value);
+      this.newItem = this.listService.getGameByName(value);
+      this.item = this.newItem.clone();
     }else{
      alert("Inserisci il Valore");
    }   
    }
 
   updateGame(){
+    this.listService.editGame(this.newItem);    
     this.isClicked = true;
-    this.listService.editGame(this.item);
     alert("Modificato");
   }
 
