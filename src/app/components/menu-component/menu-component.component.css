@@ -11,13 +11,12 @@
     border: solid orangered;
     border-top: none;
     border-bottom: none;
-    padding: 8px;
     transform: skewX(-20deg);
     margin-bottom: 50px;
 }
 
 ul {
-    width: 60%;
+    width: 55%;
     list-style-type: none;
     margin: 0 auto;
     overflow: hidden;

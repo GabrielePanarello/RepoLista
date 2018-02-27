@@ -4,6 +4,7 @@
     <p id="cerca" (click)="showGame(value)">Cerca</p>
 </div>
 
+<h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
 
     <label>Nome:</label> <input [(ngModel)]="newItem.nome" disabled />

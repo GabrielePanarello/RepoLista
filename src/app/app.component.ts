@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from './objs/menuItem';
-import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 
 @Component({
@@ -10,21 +9,19 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
   title = 'app';
-  isLogged : boolean;
+  isLogged = false;
 
-constructor(private loginService: LoginService, private router: Router){
+constructor(private loginService: LoginService){
   this.loginService.mySubject$.subscribe ((newValue: boolean) => {
     this.isLogged = newValue;
   });
 }
 
-
-
-
-
-
-
-
+ngOnInit(){
+  if(sessionStorage.getItem('key') != null){
+    this.isLogged = true;
+  }
+}
 
 
 

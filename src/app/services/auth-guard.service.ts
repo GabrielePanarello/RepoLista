@@ -14,9 +14,11 @@ export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComp
       this.router.navigate(['/login']);
     }
     return this.authService.isLogged;
-  }
+    
+    }
 
   canDeactivate(component: EditGameComponentComponent){
     return this.authService.isModified;
   }
+
 }

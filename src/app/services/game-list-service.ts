@@ -27,7 +27,7 @@ export class GameListService {
 
   getGameByName(value:string): GameItem {
     for(let item of this.items){
-      if(value.toLowerCase() == item.nome.toLowerCase()){
+      if(item.nome.toLowerCase().match(value.toLowerCase())){
         return item;
       }
     }

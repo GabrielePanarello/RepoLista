@@ -1,19 +1,32 @@
-.container {
-    width: 500px;
+.logo {
     display: block;
     margin: 0 auto;
+    width: 5%;
+}
+
+.container {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
 }
 
 label {
     display: inline-block;
-    width: 210px;
-    text-align: right;
+    margin-right: 5px;
     margin-bottom: 5px;
+    font-family: 'Concert One', cursive;
+}
+
+input {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
 }
 
 #cta {
     font-family: 'Concert One', cursive;
-    width: 200px;
+    width: 150px;
     margin: auto;
     margin-top: 20px;
     text-align: center;
