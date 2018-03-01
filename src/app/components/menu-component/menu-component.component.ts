@@ -16,29 +16,9 @@ export class MenuComponentComponent implements OnInit {
     this.items = menuService.getMenuList();
   }
 
-<<<<<<< HEAD
-  ngOnInit(){ 
-=======
   ngOnInit(){
   }
 
-  showData(item: string){
-    this.comunicatorService.changeSubject(item);
-  }
 
-  selectSection(id:string){
-
-    this.items.forEach(item => {
-      if(id == item.id){
-        item.selezionato = true;
-      }else{
-        item.selezionato = false;
-      }
-    });
-
-    this.comunicatorService.changeSubject(id);
->>>>>>> bae63db181a53cded434a5660312cff1e447137b
-  }
-  
 }
 
