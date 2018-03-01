@@ -6,6 +6,8 @@ import { GameDetailComponentComponent } from "../components/game-detail-componen
 import { EditGameComponentComponent } from "../components/edit-game-component/edit-game-component.component";
 import { LoginComponent } from "../components/login/login.component";
 import { NgModule } from "@angular/core";
+import { AuthService } from "../services/auth.service";
+import { AuthLogin } from "../services/auth-login";
 
 
 const routes: Routes = [
@@ -14,7 +16,7 @@ const routes: Routes = [
     {path:'dettaglio/:id', component: GameDetailComponentComponent, canActivate: [AuthGuardService]},
     {path:'modifica', component: EditGameComponentComponent, canActivate: [AuthGuardService], canDeactivate: [AuthGuardService]},
     {path:'modifica/:id', component: EditGameComponentComponent, canActivate: [AuthGuardService], canDeactivate: [AuthGuardService]},
-    {path:'login', component: LoginComponent},
+    {path:'login', component: LoginComponent, canActivate: [AuthLogin]},
     {path: '', redirectTo:'/login', pathMatch:'full'},
     {path: '**', component: LoginComponent}
 ];

@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { MenuService } from './services/menu-service';
 import { LoginService } from './services/login.service';
+import { AuthLogin } from './services/auth-login';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { LoginService } from './services/login.service';
     GameListService,
     AuthService,
     AuthGuardService,
+    AuthLogin,
     LoginService
   ],
   bootstrap: [AppComponent]

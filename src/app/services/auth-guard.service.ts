@@ -6,18 +6,18 @@ import { EditGameComponentComponent } from '../components/edit-game-component/ed
 @Injectable()
 export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComponentComponent>{
 
-  constructor(private authService: AuthService, private router : Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(){
+  canActivate() {
 
-    if(this.authService.isLogged == false){
+    if (sessionStorage.getItem('key') == null) {
       this.router.navigate(['/login']);
+    } else {
+      return true;
     }
-    return this.authService.isLogged;
-    
-    }
+  }
 
-  canDeactivate(component: EditGameComponentComponent){
+  canDeactivate(component: EditGameComponentComponent) {
     return this.authService.isModified;
   }
 

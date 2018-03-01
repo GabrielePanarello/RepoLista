@@ -8,21 +8,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
 
   user: string;
   psw: string;
 
-  constructor(private authService: AuthService, private loginService: LoginService, private router: Router) {
-
-  }
-
-  ngOnInit() {
-    if(sessionStorage.getItem('key') != null){
-       this.authService.isLogged = true;
-       this.router.navigate(['/home']);
-     }
-  }
+  constructor(private authService: AuthService, private loginService: LoginService, private router: Router) {}
 
   submitLogin(){
     if(this.user != "" && this.psw != "" && this.authService.checkLogin(this.user,this.psw) == true){
