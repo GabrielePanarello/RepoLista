@@ -16,22 +16,23 @@ export class MenuComponentComponent implements OnInit {
   username: string;
   isAdmin = false;
 
-  constructor() { 
-    let menuService : MenuService = new MenuService();
-    let userService : UserService = new UserService();
+  constructor() {
+    let menuService: MenuService = new MenuService();
+    let userService: UserService = new UserService();
     this.items = menuService.getMenuList();
     this.users = userService.getUsersList();
   }
 
-  ngOnInit(){
-    if(sessionStorage.getItem('key') != null){
+  ngOnInit() {
+    if (sessionStorage.getItem('key') != null) {
       this.username = sessionStorage.getItem('key');
-      for(let user of this.users){
-        if(user.user == this.username){
-          if(user.isAdmin == true){
+      for (let user of this.users) {
+        if (user.user == this.username) {
+          if (user.isAdmin == true) {
             this.isAdmin = true;
-            for(let item of this.items){
-              if(item.descrizione == "modifica"){
+          } else {
+            for (let item of this.items) {
+              if (item.descrizione == "modifica") {
                 item.visualizzato = true;
               }
             }

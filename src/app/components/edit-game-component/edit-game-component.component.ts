@@ -48,7 +48,6 @@ export class EditGameComponentComponent implements OnInit {
     this.item = undefined;
   }
 
-
   showGame(value: string) {
     if (value != undefined) {
       if (this.listService.getGameByName(value) == null) {

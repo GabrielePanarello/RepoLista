@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 import { Router } from '@angular/router';
+import { Genere } from '../../objs/genere';
 
 @Component({
   selector: 'app-games-list',
@@ -12,12 +13,16 @@ export class GamesListComponentComponent implements OnInit {
 
   id: string;
   items: GameItem[];
+  generi: Genere[];
+  value = "Tutti";
+  show = true;
 
   constructor(private gameListService: GameListService, private router: Router) { 
   }
 
   ngOnInit(){
     this.items = this.gameListService.getGamesList();
+    this.generi = this.gameListService.getGeneriList();
   }
 
   selectGame(id:string){

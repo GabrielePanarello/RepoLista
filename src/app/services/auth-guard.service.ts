@@ -22,7 +22,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComp
     } else {
       if(state.url.indexOf("modifica") != -1){
         for (let user of this.users) {
-          if (user.user == sessionStorage.getItem('key') && user.isAdmin == true) {
+          if (user.user == sessionStorage.getItem('key') && user.isAdmin != true) {
             this.router.navigate(['/home']);
           }
         }
