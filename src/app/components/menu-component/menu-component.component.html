@@ -2,6 +2,7 @@
 
 <div id="menu">
     <ul>
+        <li *ngIf="isAdmin == true">{{username}}</li>
         <div *ngFor="let item of items, let i=index">
             <li *ngIf="item.visualizzato != true" routerLink="/{{item.descrizione}}" routerLinkActive="selected">{{item.descrizione}}</li>
         </div>

@@ -1,17 +1,26 @@
 import { Injectable } from '@angular/core';
 import { GameItem } from '../objs/gameItem';
+import { UserService } from './user.service';
+import { User } from '../objs/user';
 
 @Injectable()
 export class AuthService {
   isModified = true;
+  users:  User[];
 
-  constructor() { }
+  constructor() {
+    let userService : UserService = new UserService();
+    this.users = userService.getUsersList();
+   }
 
-  checkLogin(user: string, psw: string): boolean {
-    if (user == "ciao" && psw == "ciao") {
-      sessionStorage.setItem('key', user);
+  checkLogin(username: string, password: string): boolean {
+    for(let user of this.users){
+    if (username == user.user && password == user.psw) {
+      sessionStorage.setItem('key', username);
       return true;
     }
+  }
+
   }
 
   checkItemSign(item: GameItem, modifiedItem: GameItem, isClicked: boolean) {
