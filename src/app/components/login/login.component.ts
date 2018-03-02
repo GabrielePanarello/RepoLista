@@ -15,7 +15,7 @@ export class LoginComponent{
 
   constructor(private authService: AuthService, private loginService: LoginService, private router: Router) {}
 
-  submitLogin(){
+  submitLogin(e){
     if(this.user != "" && this.psw != "" && this.authService.checkLogin(this.user,this.psw) == true){
         this.loginService.changeSubject(true);
         this.router.navigate(['/home']);
