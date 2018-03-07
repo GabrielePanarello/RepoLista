@@ -6,7 +6,7 @@
 
 
 <ng-container *ngFor="let item of items">
-    <div class="game">
+    <div class="game" [appGameStyle]="item.genere.descrizione">
         <ng-container *ngIf="value == null || value == item.genere.id">
             <img id="copertina" src="{{item.copertina}}">
 
