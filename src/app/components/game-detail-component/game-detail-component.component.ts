@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
-import { GamesListComponentComponent } from '../games-list-component/games-list-component.component';
+import { GamesListComponent } from '../games-list-component/games-list-component.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../objs/user';
@@ -11,7 +11,7 @@ import { User } from '../../objs/user';
   templateUrl: './game-detail-component.component.html',
   styleUrls: ['./game-detail-component.component.css']
 })
-export class GameDetailComponentComponent {
+export class GameDetailComponent {
 
   id: string;
   item: GameItem;

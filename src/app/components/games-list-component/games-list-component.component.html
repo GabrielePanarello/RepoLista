@@ -1,24 +1,24 @@
 <select id="selectGame" [(ngModel)]="value">
         <ng-container *ngFor="let genere of generi">
-        <option [ngValue]="genere.descrizione">{{genere.descrizione}}</option>
+        <option [ngValue]="genere.id">{{genere.descrizione}}</option>
         </ng-container>
 </select>
 
 
 <ng-container *ngFor="let item of items">
     <div class="game">
-        <ng-container *ngIf="value == 'Tutti' || value == item.genere.descrizione">
+        <ng-container *ngIf="value == null || value == item.genere.id">
             <img id="copertina" src="{{item.copertina}}">
 
             <div id="dettagli">
                 <p>Nome: {{item.nome}}</p>
-                <p>Genere: {{item.genere.descrizione}}</p>
+                <p>Genere: {{item.genere.id | idToDetail}}</p>
                 <p>Rating: {{item.rating}}&#9733;</p>
-                <p>Anno di Uscita: {{item.annoUscita}}</p>
+                <p>Anno di Uscita: {{item.annoUscita | date: 'y'}}</p>
 
                 <p id="detail" (click)="selectGame(item.id)">Dettaglio >></p>
 
-                <p id="prezzo">{{item.prezzo}} €</p>
+                <p id="prezzo">{{item.prezzo | currency:'EUR'}}</p>
             </div>
         </ng-container>
     </div>

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRoute, CanDeactivate, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
-import { EditGameComponentComponent } from '../components/edit-game-component/edit-game-component.component';
+import { EditGameComponent } from '../components/edit-game-component/edit-game-component.component';
 import { UserService } from './user.service';
 import { User } from '../objs/user';
 
 @Injectable()
-export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComponentComponent>{
+export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComponent>{
 
   users: User[];
 
@@ -31,7 +31,7 @@ export class AuthGuardService implements CanActivate, CanDeactivate<EditGameComp
     }
   }
 
-  canDeactivate(component: EditGameComponentComponent) {
+  canDeactivate(component: EditGameComponent) {
     return this.authService.isModified;
   }
 

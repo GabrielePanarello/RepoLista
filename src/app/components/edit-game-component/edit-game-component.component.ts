@@ -3,16 +3,18 @@ import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Genere } from '../../objs/genere';
 
 @Component({
   selector: 'app-edit-game',
   templateUrl: './edit-game-component.component.html',
   styleUrls: ['./edit-game-component.component.css']
 })
-export class EditGameComponentComponent implements OnInit {
+export class EditGameComponent implements OnInit {
 
   item: GameItem;
   newItem: GameItem;
+  generi: Genere[];
 
   value: string;
 
@@ -34,6 +36,8 @@ export class EditGameComponentComponent implements OnInit {
         this.authService.checkItemSign(this.item, this.newItem, this.isClicked);
       }
     });
+
+    this.generi = this.listService.getGeneriList();
   }
 
   ngOnInit() {
@@ -58,7 +62,6 @@ export class EditGameComponentComponent implements OnInit {
         this.item = this.newItem.clone();
         this.founds = false;
       }
-      console.log(this.founds);
     } else {
       alert("Inserisci il Valore");
     }

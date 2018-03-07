@@ -7,10 +7,10 @@ export class GameItem{
     genere: Genere;
     rating: number;
     prezzo: number;
-    annoUscita: number
+    annoUscita: Date
     copertina : string;
 
-    constructor(id:string = "", nome:string = "", descrizione:string = "", genere:Genere= null, rating:number=0, prezzo:number=0, annoUscita:number = 0, copertina : string){
+    constructor(id:string = "", nome:string = "", descrizione:string = "", genere:Genere= null, rating:number=0, prezzo:number=0, annoUscita:Date = null, copertina : string){
         this.id = id;
         this.nome = nome;
         this.descrizione = descrizione;

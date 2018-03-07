@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   templateUrl: './menu-component.component.html',
   styleUrls: ['./menu-component.component.css']
 })
-export class MenuComponentComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
   items: MenuItem[];
   users: User[];

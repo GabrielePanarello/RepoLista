@@ -6,4 +6,8 @@ export class Genere{
         this.id = id;
         this.descrizione = descrizione;
     }
+
+    clone(): Genere{
+        return new Genere(this.id,this.descrizione);
+     }
 }

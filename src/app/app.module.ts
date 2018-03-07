@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { MenuComponentComponent } from './components/menu-component/menu-component.component';
-import { GamesListComponentComponent } from './components/games-list-component/games-list-component.component';
-import { GameDetailComponentComponent } from './components/game-detail-component/game-detail-component.component';
-import { EditGameComponentComponent } from './components/edit-game-component/edit-game-component.component';
+import { MenuComponent } from './components/menu-component/menu-component.component';
+import { GamesListComponent } from './components/games-list-component/games-list-component.component';
+import { GameDetailComponent } from './components/game-detail-component/game-detail-component.component';
+import { EditGameComponent } from './components/edit-game-component/edit-game-component.component';
 import { HomeComponent } from './components/home-component/home.component';
 import { GameListService } from './services/game-list-service';
 import { FormsModule } from '@angular/forms';
@@ -17,17 +17,21 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { MenuService } from './services/menu-service';
 import { LoginService } from './services/login.service';
 import { AuthLogin } from './services/auth-login';
+import { IdToDetailPipe } from './pipes/id-to-detail.pipe';
+import { GameStyleDirective } from './directives/game-style.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponentComponent,
-    GamesListComponentComponent,
-    GameDetailComponentComponent,
-    EditGameComponentComponent,
+    MenuComponent,
+    GamesListComponent,
+    GameDetailComponent,
+    EditGameComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    IdToDetailPipe,
+    GameStyleDirective
   ],
   imports: [
     BrowserModule,

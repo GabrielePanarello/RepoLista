@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 import { GameItem } from '../../objs/gameItem';
 import { GameListService } from '../../services/game-list-service';
 import { Router } from '@angular/router';
@@ -9,12 +10,12 @@ import { Genere } from '../../objs/genere';
   templateUrl: './games-list-component.component.html',
   styleUrls: ['./games-list-component.component.css']
 })
-export class GamesListComponentComponent implements OnInit {
+export class GamesListComponent implements OnInit {
 
   id: string;
   items: GameItem[];
   generi: Genere[];
-  value = "Tutti";
+  value = null;
   show = true;
 
   constructor(private gameListService: GameListService, private router: Router) { 
