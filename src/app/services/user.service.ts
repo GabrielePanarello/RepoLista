@@ -17,4 +17,18 @@ export class UserService {
     return this.users;
 }
 
+ checkIsLogged(sessionValue: string): boolean{
+  if (sessionValue != null) {
+    for (let user of this.users) {
+      if (user.user == sessionValue) {
+        if (user.isAdmin == true) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+  }
+ }
+
 }

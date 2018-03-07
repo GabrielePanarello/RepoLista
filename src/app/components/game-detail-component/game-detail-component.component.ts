@@ -15,7 +15,6 @@ export class GameDetailComponent {
 
   id: string;
   item: GameItem;
-  users: User[];
   isAdmin = false;
 
   constructor(private gameService: GameListService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -25,17 +24,10 @@ export class GameDetailComponent {
       }
     });
     let userService: UserService = new UserService();
-    this.users = userService.getUsersList();
+    this.isAdmin = userService.checkIsLogged(sessionStorage.getItem('key'));
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem('key') != null) {
-      for (let user of this.users) {
-        if (user.user == sessionStorage.getItem('key') && user.isAdmin == true) {
-          this.isAdmin = true;
-        }
-      }
-    }
   }
 
   backToList() {

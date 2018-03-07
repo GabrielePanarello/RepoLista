@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { GameListService } from '../services/game-list-service';
+import { GenreService } from '../services/genre.service';
 
 @Pipe({
   name: 'idToDetail'
@@ -7,8 +7,8 @@ import { GameListService } from '../services/game-list-service';
 export class IdToDetailPipe implements PipeTransform {
 
   transform(id: string): string {
-    let gameService: GameListService = new GameListService();
-    return gameService.getGenreById(id);
+    let genresService: GenreService = new GenreService();
+    return genresService.getDescById(id);
   }
 
 }

@@ -19,6 +19,7 @@ import { LoginService } from './services/login.service';
 import { AuthLogin } from './services/auth-login';
 import { IdToDetailPipe } from './pipes/id-to-detail.pipe';
 import { GameStyleDirective } from './directives/game-style.directive';
+import { GenreService } from './services/genre.service';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { GameStyleDirective } from './directives/game-style.directive';
     AuthService,
     AuthGuardService,
     AuthLogin,
-    LoginService
+    LoginService,
+    GenreService
   ],
   bootstrap: [AppComponent]
 })

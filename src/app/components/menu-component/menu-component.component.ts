@@ -12,33 +12,26 @@ import { UserService } from '../../services/user.service';
 export class MenuComponent implements OnInit {
 
   items: MenuItem[];
-  users: User[];
-  username: string;
   isAdmin = false;
+  username: string;
 
   constructor() {
     let menuService: MenuService = new MenuService();
     let userService: UserService = new UserService();
     this.items = menuService.getMenuList();
-    this.users = userService.getUsersList();
+    this.isAdmin = userService.checkIsLogged(sessionStorage.getItem('key'));
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem('key') != null) {
-      this.username = sessionStorage.getItem('key');
-      for (let user of this.users) {
-        if (user.user == this.username) {
-          if (user.isAdmin == true) {
-            this.isAdmin = true;
-          } else {
-            for (let item of this.items) {
-              if (item.descrizione == "modifica") {
-                item.visualizzato = true;
-              }
-            }
-          }
+    console.log(this.isAdmin);
+    if (!this.isAdmin) {
+      for (let item of this.items) {
+        if (item.descrizione == "modifica") {
+          item.visualizzato = true;
         }
       }
+    }else{
+      this.username = sessionStorage.getItem('key');
     }
   }
 

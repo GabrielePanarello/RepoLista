@@ -4,6 +4,7 @@ import { GameListService } from '../../services/game-list-service';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Genere } from '../../objs/genere';
+import { GenreService } from '../../services/genre.service';
 
 @Component({
   selector: 'app-edit-game',
@@ -22,7 +23,7 @@ export class EditGameComponent implements OnInit {
   fromDetail = false;
   founds = false;
 
-  constructor(private listService: GameListService, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
+  constructor(private listService: GameListService, private genresService: GenreService, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.newItem = this.listService.getGameById(params['id']);
@@ -37,7 +38,7 @@ export class EditGameComponent implements OnInit {
       }
     });
 
-    this.generi = this.listService.getGeneriList();
+    this.generi = this.genresService.getGeneriList();
   }
 
   ngOnInit() {
