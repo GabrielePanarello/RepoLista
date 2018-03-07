@@ -28,6 +28,7 @@ export class EditGameComponent implements OnInit {
       if (params['id'] != null && params['id'] != "") {
         this.newItem = this.listService.getGameById(params['id']);
         this.item = this.newItem.clone();
+        this.item.genere = this.item.genere.clone();
         this.fromDetail = true;
       }
     });
@@ -61,6 +62,7 @@ export class EditGameComponent implements OnInit {
       } else {
         this.newItem = this.listService.getGameByName(value);
         this.item = this.newItem.clone();
+        this.item.genere = this.item.genere.clone();
         this.founds = false;
       }
     } else {

@@ -19,8 +19,7 @@ export class GamesListComponent implements OnInit {
   value = null;
   show = true;
 
-  constructor(private gameListService: GameListService, private genresService: GenreService, private router: Router) { 
-  }
+  constructor(private gameListService: GameListService, private genresService: GenreService, private router: Router) { }
 
   ngOnInit(){
     this.items = this.gameListService.getGamesList();

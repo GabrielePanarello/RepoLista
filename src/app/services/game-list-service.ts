@@ -12,7 +12,7 @@ export class GameListService {
     new GameItem("01", "FIFA 18", "-", this.genresService.getGenreById("03").clone(), 5, 35, new Date("2017,11,11"), "../../../assets/fifa18.jpeg"),
     new GameItem("02", "Call Of Duty", "-", this.genresService.getGenreById("02").clone(), 5, 35, new Date("2017,12,11"), "../../../assets/cod.jpeg"),
     new GameItem("03", "Destiny 2", "-", this.genresService.getGenreById("01").clone(), 5, 30, new Date("2017,09,11"), "../../../assets/destiny.jpg"),
-    new GameItem("04", "NBA 2K18", "-", this.genresService.getGenreById("02").clone(), 5, 35, new Date("2017,08,11"), "../../../assets/nba.jpg")
+    new GameItem("04", "NBA 2K18", "-", this.genresService.getGenreById("03").clone(), 5, 35, new Date("2017,08,11"), "../../../assets/nba.jpg")
   ];
 
   getGamesList(): GameItem[] {
@@ -30,7 +30,7 @@ export class GameListService {
   getGameByName(value: string): GameItem {
     for (let item of this.items) {
       if (item.nome.toLowerCase().match(value.toLowerCase())) {
-        return item;
+        return item.clone();
       }
     }
   }
@@ -39,6 +39,7 @@ export class GameListService {
     for (let item of this.items) {
       if (modifiedGame.id == item.id) {
         item = modifiedGame;
+        console.log(item);
       }
     }
   }
