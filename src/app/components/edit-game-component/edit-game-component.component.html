@@ -7,24 +7,24 @@
 <h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
 
-    <form (ngSubmit)="updateGame()" #editForm="ngForm">
-        <label>Nome:</label> <input class="form-control" type="text" [(ngModel)]="newItem.nome" disabled name="nome" />
-        <label>Descrizione:</label> <input class="form-control" type="text" [(ngModel)]="newItem.descrizione" name="desc" />
+    <form [formGroup]="editForm" (ngSubmit)="updateGame()">
+        <label>Nome: </label> <input formControlName="nome">
+        <label>Descrizione: </label> <input formControlName="descrizione">
+
         <label>Genere:</label>
-
-        <select class="form-control" [(ngModel)]="newItem.genere.descrizione" name="genres">
-        <ng-container *ngFor="let genere of generi">
-            <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
-                <option [value]="genere.descrizione">{{genere.descrizione}}</option>
+        <select formControlName="genere">
+            <ng-container *ngFor="let genere of generi">
+                <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
+                    <option [value]="genere.descrizione">{{genere.descrizione}}</option>
+                </ng-container>
             </ng-container>
-        </ng-container>
-        </select>
+            </select>
 
-        <label>Rating:</label> <input type="text" [(ngModel)]="newItem.rating" name="rating" />
-        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" #prezzo="ngModel" />
-        <label>Anno di Uscita:</label> <input type="text" [(ngModel)]="newItem.annoUscita" name="annoUscita" />
+        <label>Rating: </label> <input formControlName="rating">
+        <label>Prezzo: </label> <input formControlName="prezzo">
+        <label>Anno Uscita: </label> <input formControlName="annoUscita">
 
-        <button type="submit" id="cta" [disabled]="editForm.form.invalid">Modifica</button>
+        <button type="submit" id="cta">Modifica</button>
 
     </form>
 </div>

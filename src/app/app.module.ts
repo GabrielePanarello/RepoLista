@@ -9,7 +9,7 @@ import { GameDetailComponent } from './components/game-detail-component/game-det
 import { EditGameComponent } from './components/edit-game-component/edit-game-component.component';
 import { HomeComponent } from './components/home-component/home.component';
 import { GameListService } from './services/game-list-service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { MainRouterModule } from './routers/router-module';
 import { AuthService } from './services/auth.service';
@@ -37,6 +37,7 @@ import { GenreService } from './services/genre.service';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     MainRouterModule
   ],
   providers: [
