@@ -10,7 +10,7 @@
     <label>Nome:</label> <input [(ngModel)]="newItem.nome" disabled />
     <label>Descrizione:</label> <input [(ngModel)]="newItem.descrizione" />
 
-    <select [(ngModel)]="newItem.genere.descrizione">
+    <label>Genere:</label><select [(ngModel)]="newItem.genere.descrizione">
         <ng-container  *ngFor="let genere of generi">
             <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
                 <option value="{{genere.descrizione}}">{{genere.descrizione}}</option>

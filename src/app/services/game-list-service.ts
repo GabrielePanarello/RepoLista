@@ -30,7 +30,7 @@ export class GameListService {
   getGameByName(value: string): GameItem {
     for (let item of this.items) {
       if (item.nome.toLowerCase().match(value.toLowerCase())) {
-        return item.clone();
+        return item;
       }
     }
   }
