@@ -6,6 +6,7 @@
 
 <h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
+
     <form (ngSubmit)="updateGame()" #editForm="ngForm">
         <label>Nome:</label> <input class="form-control" type="text" [(ngModel)]="newItem.nome" disabled name="nome" />
         <label>Descrizione:</label> <input class="form-control" type="text" [(ngModel)]="newItem.descrizione" name="desc" />
@@ -20,8 +21,10 @@
         </select>
 
         <label>Rating:</label> <input type="text" [(ngModel)]="newItem.rating" name="rating" />
-        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" />
+        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" #prezzo="ngModel" />
         <label>Anno di Uscita:</label> <input type="text" [(ngModel)]="newItem.annoUscita" name="annoUscita" />
 
-        <button type="submit" id="cta" [disabled]="!editForm.form.valid">Modifica</button>
+        <button type="submit" id="cta" [disabled]="editForm.form.invalid">Modifica</button>
+
     </form>
+</div>
