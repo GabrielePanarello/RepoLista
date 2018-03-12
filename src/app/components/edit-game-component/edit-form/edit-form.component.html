@@ -1,3 +1,13 @@
-<p>
-  edit-form works!
-</p>
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+        <div *ngFor="let element of elements">
+            <app-question [element]="element" [form]="form"></app-question>
+        </div>
+
+        <div>
+            <button type="submit" [disabled]="!form.valid">Save</button>
+        </div>
+
+    </form>
+</div>

@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { Genere } from '../../objs/genere';
 import { GenreService } from '../../services/genre.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { EditForm } from '../../objs/formObjs/editForm';
+import { ElementsService } from '../../services/elements.service';
 
 @Component({
   selector: 'app-edit-game',
@@ -24,9 +26,9 @@ export class EditGameComponent implements OnInit {
   fromDetail = false;
   founds = false;
 
-  editForm: FormGroup;
+  elements: EditForm<any>[];
 
-  constructor(private fb:FormBuilder, private listService: GameListService, private genresService: GenreService, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
+  constructor(private formService: ElementsService, private listService: GameListService, private genresService: GenreService, private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) {
     this.activatedRoute.params.subscribe(params => {
       if (params['id'] != null && params['id'] != "") {
         this.newItem = this.listService.getGameById(params['id']);
@@ -50,30 +52,12 @@ export class EditGameComponent implements OnInit {
     if (this.fromDetail == true) {
       this.listService.getGameById(this.newItem.id);
       this.listService.getGameById(this.item.id);
-      this.createForm();
     }
+    this.elements = this.formService.getElements();
 
   }
 
-  createForm(){
-    this.editForm = this.fb.group({
-      nome:'',
-      descrizione:'',
-      genere:'',
-      rating:'',
-      prezzo:'',
-      annoUscita:''
-    });
-    
-    this.editForm.setValue({
-      nome: this.newItem.nome,
-      descrizione: this.newItem.descrizione,
-      genere:this.newItem.genere.descrizione,
-      rating: this.newItem.rating,
-      prezzo: this.newItem.prezzo,
-      annoUscita: this.newItem.annoUscita
-    });
-  }
+  
 
   ngOnDestroy() {
     this.item = undefined;
@@ -89,7 +73,6 @@ export class EditGameComponent implements OnInit {
         this.item = this.newItem.clone();
         this.item.genere = this.item.genere.clone();
         this.founds = false;
-        this.createForm();
       }
     } else {
       alert("Inserisci il Valore");

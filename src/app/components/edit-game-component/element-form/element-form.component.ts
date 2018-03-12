@@ -7,8 +7,12 @@ import { EditForm } from '../../../objs/formObjs/editForm';
   selector: 'app-question',
   templateUrl: './element-form.component.html'
 })
-export class DynamicFormQuestionComponent {
+export class ElementFormComponent {
+  
   @Input() element: EditForm<any>;
   @Input() form: FormGroup;
-  get isValid() { return this.form.controls[this.element.key].valid; }
+  
+  get isValid() {
+     return this.form.controls[this.element.key].valid; 
+    }
 }

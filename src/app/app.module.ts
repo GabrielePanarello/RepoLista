@@ -20,8 +20,9 @@ import { AuthLogin } from './services/auth-login';
 import { IdToDetailPipe } from './pipes/id-to-detail.pipe';
 import { GameStyleDirective } from './directives/game-style.directive';
 import { GenreService } from './services/genre.service';
-import { EditFormComponent } from './components/edit-form/edit-form.component';
+import { EditFormComponent } from './components/edit-game-component/edit-form/edit-form.component';
 import { ElementFormComponent } from './components/edit-game-component/element-form/element-form.component';
+import { ElementsService } from './services/elements.service';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ElementFormComponent } from './components/edit-game-component/element-f
     AuthGuardService,
     AuthLogin,
     LoginService,
-    GenreService
+    GenreService,
+    ElementsService
   ],
   bootstrap: [AppComponent]
 })

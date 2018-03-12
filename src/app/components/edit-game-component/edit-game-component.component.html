@@ -7,7 +7,7 @@
 <h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
 
-    <form [formGroup]="editForm" (ngSubmit)="updateGame()">
+    <!--<form [formGroup]="editForm" (ngSubmit)="updateGame()">
         <label>Nome: </label> <input formControlName="nome">
         <label>Descrizione: </label> <input formControlName="descrizione">
 
@@ -26,5 +26,6 @@
 
         <button type="submit" id="cta">Modifica</button>
 
-    </form>
+    </form>-->
+    <app-edit-form [elements]="elements"></app-edit-form>
 </div>

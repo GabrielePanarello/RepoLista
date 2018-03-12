@@ -1,7 +1,7 @@
 import { EditForm } from "./editForm";
 
 export class SelectForm extends EditForm<string>{
-    controlType = "textbox";
+    controlType = "dropdown";
     type: string;
 
     constructor(options: {} = {}){

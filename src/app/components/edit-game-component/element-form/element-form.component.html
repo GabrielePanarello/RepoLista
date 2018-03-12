@@ -1,3 +1,15 @@
-<p>
-  element-form works!
-</p>
+<div [formGroup]="form">
+    <label [attr.for]="element.key">{{element.label}}</label>
+
+    <div [ngSwitch]="element.controlType">
+
+        <input *ngSwitchCase="'textbox'" [formControlName]="element.key" [id]="element.key" [type]="element.type" [value]="element.value">
+
+        <!--<select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>-->
+
+    </div>
+
+    <!--<div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>-->
+</div>
