@@ -20,6 +20,7 @@ import { AuthLogin } from './services/auth-login';
 import { IdToDetailPipe } from './pipes/id-to-detail.pipe';
 import { GameStyleDirective } from './directives/game-style.directive';
 import { GenreService } from './services/genre.service';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { GenreService } from './services/genre.service';
     HomeComponent,
     LoginComponent,
     IdToDetailPipe,
-    GameStyleDirective
+    GameStyleDirective,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
