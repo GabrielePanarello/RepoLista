@@ -6,21 +6,22 @@
 
 <h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
+    <form (ngSubmit)="updateGame()" #editForm="ngForm">
+        <label>Nome:</label> <input class="form-control" type="text" [(ngModel)]="newItem.nome" disabled name="nome" />
+        <label>Descrizione:</label> <input class="form-control" type="text" [(ngModel)]="newItem.descrizione" name="desc" />
+        <label>Genere:</label>
 
-    <label>Nome:</label> <input [(ngModel)]="newItem.nome" disabled />
-    <label>Descrizione:</label> <input [(ngModel)]="newItem.descrizione" />
-
-    <label>Genere:</label><select [(ngModel)]="newItem.genere.descrizione">
-        <ng-container  *ngFor="let genere of generi">
+        <select class="form-control" [(ngModel)]="newItem.genere.descrizione" name="genres">
+        <ng-container *ngFor="let genere of generi">
             <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
-                <option value="{{genere.descrizione}}">{{genere.descrizione}}</option>
+                <option [value]="genere.descrizione">{{genere.descrizione}}</option>
             </ng-container>
         </ng-container>
-    </select>
+        </select>
 
-    <label>Rating:</label> <input [(ngModel)]="newItem.rating" />
-    <label>Prezzo:</label> <input [(ngModel)]="newItem.prezzo" />
-    <label>Anno di Uscita:</label> <input [(ngModel)]="newItem.annoUscita" />
+        <label>Rating:</label> <input type="text" [(ngModel)]="newItem.rating" name="rating" />
+        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" />
+        <label>Anno di Uscita:</label> <input type="text" [(ngModel)]="newItem.annoUscita" name="annoUscita" />
 
-    <p id="cta" (click)="updateGame()">Modifica</p>
-</div>
+        <button type="submit" id="cta" [disabled]="!editForm.form.valid">Modifica</button>
+    </form>
