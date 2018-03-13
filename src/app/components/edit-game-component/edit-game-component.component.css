@@ -35,6 +35,10 @@ label {
     cursor: pointer;
 }
 
+button {
+    text-align: center;
+}
+
 #cerca {
     font-family: 'Concert One', cursive;
     width: 131px;

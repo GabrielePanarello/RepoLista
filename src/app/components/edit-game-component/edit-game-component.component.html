@@ -21,10 +21,10 @@
         </select>
 
         <label>Rating:</label> <input type="text" [(ngModel)]="newItem.rating" name="rating" />
-        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" #prezzo="ngModel" />
-        <label>Anno di Uscita:</label> <input type="text" [(ngModel)]="newItem.annoUscita" name="annoUscita" />
+        <label>Prezzo:</label> <input type="text" [(ngModel)]="newItem.prezzo" name="prezzo" />
+        <label>Anno di Uscita:</label> <input type="date" [ngModel]="newItem.annoUscita | date:'y'" (ngModelChange)="newItem.annoUscita=$event" name="annoUscita" />
 
-        <button type="submit" id="cta" [disabled]="editForm.form.invalid">Modifica</button>
+        <p type="submit" id="cta" [hidden]="editForm.form.invalid">Modifica</p>
 
     </form>
 </div>
