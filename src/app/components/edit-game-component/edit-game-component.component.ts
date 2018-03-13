@@ -52,8 +52,8 @@ export class EditGameComponent implements OnInit {
     if (this.fromDetail == true) {
       this.listService.getGameById(this.newItem.id);
       this.listService.getGameById(this.item.id);
-    }
-    this.elements = this.formService.getElements();
+      this.elements = this.formService.setElements(this.newItem.id);
+    }  
 
   }
 
@@ -73,6 +73,7 @@ export class EditGameComponent implements OnInit {
         this.item = this.newItem.clone();
         this.item.genere = this.item.genere.clone();
         this.founds = false;
+        this.elements = this.formService.setElements(this.newItem.id);
       }
     } else {
       alert("Inserisci il Valore");

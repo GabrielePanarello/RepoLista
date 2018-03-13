@@ -1,12 +1,12 @@
 <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <form (ngSubmit)="updateGame()" [formGroup]="form">
 
         <div *ngFor="let element of elements">
             <app-question [element]="element" [form]="form"></app-question>
         </div>
 
         <div>
-            <button type="submit" [disabled]="!form.valid">Save</button>
+            <button id="cta" type="submit" [disabled]="!form.valid">Modifica</button>
         </div>
 
     </form>

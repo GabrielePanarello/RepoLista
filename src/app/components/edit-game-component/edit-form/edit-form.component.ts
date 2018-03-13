@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-edit-form',
   templateUrl: './edit-form.component.html',
-  providers:[FormControlService]
+  providers: [FormControlService]
 })
 export class EditFormComponent implements OnInit {
 
