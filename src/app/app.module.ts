@@ -20,6 +20,7 @@ import { AuthLogin } from './services/auth-login';
 import { IdToDetailPipe } from './pipes/id-to-detail.pipe';
 import { GameStyleDirective } from './directives/game-style.directive';
 import { GenreService } from './services/genre.service';
+import { MyDatePickerModule } from 'mydatepicker';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { GenreService } from './services/genre.service';
   imports: [
     BrowserModule,
     FormsModule,
-    MainRouterModule
+    MainRouterModule,
+    MyDatePickerModule
   ],
   providers: [
     GameListService,
