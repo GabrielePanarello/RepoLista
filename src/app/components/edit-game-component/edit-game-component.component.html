@@ -8,10 +8,12 @@
 <div class="found" *ngIf="newItem != undefined">
 
     <form (ngSubmit)="updateGame()" #editForm="ngForm">
-        <label>Nome:</label> <input class="form-control" type="text" [(ngModel)]="newItem.nome" disabled name="nome" />
-        <label>Descrizione:</label> <input class="form-control" type="text" required [(ngModel)]="newItem.descrizione" name="desc" />
-        <label>Genere:</label>
+        <label>Nome:</label>
+        <input class="form-control" type="text" [(ngModel)]="newItem.nome" disabled name="nome" />
+        <label>Descrizione:</label>
+        <input class="form-control" type="text" required [(ngModel)]="newItem.descrizione" name="desc" #descVar="ngModel" [class.error]="descVar.invalid" />
 
+        <label>Genere:</label>
         <select class="form-control" [(ngModel)]="newItem.genere.descrizione" name="genres">
         <ng-container *ngFor="let genere of generi">
             <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
@@ -20,12 +22,17 @@
         </ng-container>
         </select>
 
-        <label>Rating:</label> <input type="text" required [(ngModel)]="newItem.rating" name="rating" />
-        <label>Prezzo:</label> <input type="text" required [(ngModel)]="newItem.prezzo" name="prezzo" />
-        <label>Anno di Uscita:</label> <input type="text" required [ngModel]="newItem.annoUscita | date:'y'" (ngModelChange)="newItem.annoUscita=$event" name="annoUscita" />
+        <label>Rating:</label>
+        <input type="text" required [(ngModel)]="newItem.rating" name="rating" #ratingVar="ngModel" [class.error]="ratingVar.invalid" />
+        <label>Prezzo:</label>
+        <input type="text" required [(ngModel)]="newItem.prezzo" name="prezzo" #prezzoVar="ngModel" [class.error]="prezzoVar.invalid" />
+        <label>Anno di Uscita:</label>
+        <input type="text" required [ngModel]="newItem.annoUscita | date:'y'" (ngModelChange)="newItem.annoUscita=$event" name="annoUscita" #annoVar="ngModel" [class.error]="annoVar.invalid" />
+
         <!-- <label>Anno di Uscita:</label> -->
         <!-- <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="newItem.annoUscita" required></my-date-picker> -->
-        <input type="submit" id="ctaButton" value="Modifica" [hidden]="editForm.form.invalid" />
+
+        <input type="submit" id="ctaButton" value="Modifica" [hidden]="!editForm.form.valid" />
 
     </form>
 </div>
