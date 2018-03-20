@@ -75,4 +75,8 @@ export class EditGameComponent implements OnInit {
     this.isClicked = true;
     alert("Modificato");
   }
+
+  resetDefaultGame(){
+    this.newItem = this.item;
+  }
 }

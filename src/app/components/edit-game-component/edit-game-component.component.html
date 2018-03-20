@@ -32,7 +32,10 @@
         <!-- <label>Anno di Uscita:</label> -->
         <!-- <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="newItem.annoUscita" required></my-date-picker> -->
 
-        <input type="submit" id="ctaButton" value="Modifica" [hidden]="!editForm.form.valid" />
+        <div id="containerButton">
+            <input type="submit" id="ctaButton" value="Modifica" [hidden]="!editForm.form.valid || editForm.form.dirty" />
+            <input (click)="resetDefaultGame()" id="ctaButton" value="Reset" [hidden]="!editForm.form.valid || editForm.form.dirty" />
+        </div>
 
     </form>
 </div>

@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isAdmin);
+
     if (!this.isAdmin) {
       for (let item of this.items) {
         if (item.descrizione == "modifica") {
@@ -32,7 +32,10 @@ export class MenuComponent implements OnInit {
       }
     }else{
       this.username = sessionStorage.getItem('key');
+      this.username = this.username.toLocaleUpperCase();
     }
+
+    
   }
 
 

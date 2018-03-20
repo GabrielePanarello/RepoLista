@@ -21,6 +21,10 @@ h2 {
     margin: 0 auto;
 }
 
+#containerButton {
+    text-align: center;
+}
+
 
 /* STILE CTA */
 
@@ -37,7 +41,7 @@ h2 {
 }
 
 #ctaButton {
-    display: block;
+    display: inline-block;
     margin: auto;
     font-family: 'Concert One', cursive;
     width: 200px;
