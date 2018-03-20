@@ -6,26 +6,5 @@
 
 <h2 *ngIf="founds == true">Elemento Non Trovato!</h2>
 <div class="found" *ngIf="newItem != undefined">
-
-    <!--<form [formGroup]="editForm" (ngSubmit)="updateGame()">
-        <label>Nome: </label> <input formControlName="nome">
-        <label>Descrizione: </label> <input formControlName="descrizione">
-
-        <label>Genere:</label>
-        <select formControlName="genere">
-            <ng-container *ngFor="let genere of generi">
-                <ng-container *ngIf="genere.id != null && genere != newItem.genere.id">
-                    <option [value]="genere.descrizione">{{genere.descrizione}}</option>
-                </ng-container>
-            </ng-container>
-            </select>
-
-        <label>Rating: </label> <input formControlName="rating">
-        <label>Prezzo: </label> <input formControlName="prezzo">
-        <label>Anno Uscita: </label> <input formControlName="annoUscita">
-
-        <button type="submit" id="cta">Modifica</button>
-
-    </form>-->
     <app-edit-form [elements]="elements"></app-edit-form>
 </div>

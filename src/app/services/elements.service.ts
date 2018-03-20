@@ -5,15 +5,39 @@ import { TextboxForm } from '../objs/formObjs/textboxForm';
 import { GameListService } from './game-list-service';
 import { GenreService } from './genre.service';
 import { Genere } from '../objs/genere';
+import { GameItem } from '../objs/gameItem';
 
 @Injectable()
 export class ElementsService {
 
-  constructor(private listService: GameListService, private genresService: GenreService) {}
+  genres: Genere[];
+  inputGame: GameItem;
+  newGenres: [{}] = [{}];
 
-  setElements(id: string){
+  constructor(private listService: GameListService, private genresService: GenreService) {
+    this.genres = genresService.getGeneriList();
+  }
+
+  arrayFilter(id: string) {
+    this.newGenres = [{}];
+    this.inputGame = this.listService.getGameById(id);
+
+    for (let genre of this.genres) {
+      if (genre.id != null && genre.id == this.inputGame.genere.id){
+        this.newGenres.push({ key: genre.descrizione, value: genre.descrizione, selected: true });
+      }else{
+        this.newGenres.push({ key: genre.descrizione, value: genre.descrizione, selected: false });
+      }
+    }
+    this.newGenres.splice(0, 2);
+    console.log(this.newGenres);
+  }
+
+  setElements(id: string) {
+    this.arrayFilter(id);
+
     let elements: EditForm<any>[] = [
-      
+
       new TextboxForm({
         key: 'nome',
         label: 'Nome',
@@ -49,14 +73,13 @@ export class ElementsService {
         required: true,
         order: 4
       }),
-      /*new SelectForm({
+      new SelectForm({
         key: 'generi',
         label: 'Genere',
-        options: [],
+        options: this.newGenres,
         order: 3
-      })*/
+      })
     ];
-
     return elements.sort((a, b) => a.order - b.order);
   }
 

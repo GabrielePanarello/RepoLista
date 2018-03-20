@@ -2,10 +2,10 @@ import { EditForm } from "./editForm";
 
 export class SelectForm extends EditForm<string>{
     controlType = "dropdown";
-    type: string;
+    options: {key: string, value: string, selected: false}[] = [];
 
     constructor(options: {} = {}){
         super(options);
-        this.type = options['type'] || '';  
+        this.options = options['options'] || '';  
     }
 }
