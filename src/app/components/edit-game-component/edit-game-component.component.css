@@ -50,3 +50,16 @@ button {
     color: white;
     cursor: pointer;
 }
+
+#ctaButton {
+    display: block;
+    margin: auto;
+    font-family: 'Concert One', cursive;
+    width: 200px;
+    margin-top: 20px;
+    text-align: center;
+    border: solid red;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
