@@ -39,7 +39,6 @@ export class GameListService {
     for (let item of this.items) {
       if (modifiedGame.id == item.id) {
         item = modifiedGame;
-        console.log(item);
       }
     }
   }
